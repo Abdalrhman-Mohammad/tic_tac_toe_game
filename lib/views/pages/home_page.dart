@@ -55,6 +55,7 @@ class _HomePageState extends State<HomePage> {
         (index) => ValueListenableBuilder(
               valueListenable: value,
               builder: (context, value, child) {
+                p.p = 1;
                 return llnew[index] = Player(
                     playerNumber: llnew[index].playerNumber,
                     playerNumber1: index + 1);

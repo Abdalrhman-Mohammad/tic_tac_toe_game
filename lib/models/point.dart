@@ -1,3 +1,3 @@
 class Point {
-  int p = 0;
+  int p = 1;
 }
