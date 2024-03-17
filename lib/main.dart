@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'TecTacToe Game',
       theme: AppTheme.mainTheme,
       home: const HomePage(),
     );
   }
 }
-
