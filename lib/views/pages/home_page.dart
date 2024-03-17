@@ -6,7 +6,6 @@ import 'package:tec_tac_toe_game/models/wraping_state.dart';
 import 'package:tec_tac_toe_game/models/wrapint_player_number.dart';
 import 'package:tec_tac_toe_game/views/widgets/element_x_o.dart';
 import 'package:tec_tac_toe_game/utils/app_colors.dart';
-import 'package:tec_tac_toe_game/views/widgets/main_column.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,12 +34,7 @@ class _HomePageState extends State<HomePage> {
         lnew: lnew,
       );
       int tmp = check.CheckWinning(); //check
-      // print(
-      //     "${llnew[0].playerNumber.playerNumber} ${llnew[1].playerNumber.playerNumber}");
       if (tmp > 0) value.value ^= 1;
-      // print(
-      //     "${llnew[0].playerNumber.playerNumber} ${llnew[1].playerNumber.playerNumber}");
-      print(tmp);
     }
 
     llnew = List.generate(
@@ -110,10 +104,37 @@ class _HomePageState extends State<HomePage> {
               ll[0],
               const Spacer(),
               ValueListenableBuilder(
-                  valueListenable: value,
-                  builder: (context, value, child) {
-                    return Text("${winnerCounter[0]} / ${winnerCounter[1]}");
-                  }),
+                valueListenable: value,
+                builder: (context, value, child) {
+                  // return Text("${winnerCounter[0]} / ${winnerCounter[1]}");
+                  return Text.rich(
+                    TextSpan(
+                      text: winnerCounter[0].toString(),
+                      style: const TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                      children: [
+                        const TextSpan(
+                          text: "/",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: winnerCounter[1].toString(),
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
               const Spacer(),
               ll[1],
             ],
